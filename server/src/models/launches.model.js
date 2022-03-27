@@ -8,18 +8,18 @@ const launches = new Map();
 
 //let latestFlightNumber = 100;
 
-const launch = {
-    flightNumber: 100,
-    mission: 'Kepler exploration X',
-    rocket: 'Explorer IS1',
-    launchDate: new Date('December 27, 2030'),
-    target: 'Kepler-442 b',
-    customers: ['ZTM', 'NASA'],
-    upcoming: true,
-    success: true,
-};
+// const launch = {
+//     flightNumber: 100,
+//     mission: 'Kepler exploration X',
+//     rocket: 'Explorer IS1',
+//     launchDate: new Date('December 27, 2030'),
+//     target: 'Kepler-442 b',
+//     customers: ['ZTM', 'NASA'],
+//     upcoming: true,
+//     success: true,
+// };
 
-saveLaunch(launch);
+//saveLaunch(launch);
 
 //launches.set(launch.flightNumber, launch);
 
@@ -46,6 +46,7 @@ async function getAllLaunches(skip, limit) {
     //return Array.from(launches.values());
     return await launchesDatabase
         .find({}, { '_id': 0, '__v': 0 })
+        .sort('flightNumber') //.sort({ flightNumber: 1 })
         .skip(skip)
         .limit(limit);
 }

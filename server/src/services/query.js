@@ -1,5 +1,5 @@
 //for pagination in mongo
-const DEFAULT_PAGE_LIMIT = 50;
+const DEFAULT_PAGE_LIMIT = 500;
 
 function getPagination(query) {
     const page = Math.abs(query.page) || 1;

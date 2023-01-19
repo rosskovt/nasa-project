@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
 } from "react-router-dom";
 import {
   Arwes,
@@ -18,7 +18,7 @@ const App = () => {
     <SoundsProvider sounds={createSounds(sounds)}>
       <Arwes animate background={resources.background.large} pattern={resources.pattern}>
         {anim => (
-          <Router>
+          <Router base="/">
             <AppLayout show={anim.entered} />
           </Router>
         )}
